@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #83a4d4, #b6fbff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .prediction-output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Forest Fire Prediction</h1>
+        <form method="POST">
+            <label for="Temperature">Temperature:</label>
+            <input type="text" name="Tempreture" placeholder="Enter temperature" required>
+
+            <label for="RH">Relative Humidity (RH):</label>
+            <input type="text" name="RH" placeholder="Enter RH" required>
+
+            <label for="Ws">Wind Speed (Ws):</label>
+            <input type="text" name="Ws" placeholder="Enter wind speed" required>
+
+            <label for="Rain">Rain:</label>
+            <input type="text" name="Rain" placeholder="Enter rainfall" required>
+
+            <label for="FFMC">FFMC:</label>
+            <input type="text" name="FFMC" placeholder="Enter FFMC value" required>
+
+            <label for="DMC">DMC:</label>
+            <input type="text" name="DMC" placeholder="Enter DMC value" required>
+
+            <label for="ISI">ISI:</label>
+            <input type="text" name="ISI" placeholder="Enter ISI value" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_output %}
+        <div class="prediction-output">
+            <h2>Prediction Output:</h2>
+            <p>{{ prediction_output }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
